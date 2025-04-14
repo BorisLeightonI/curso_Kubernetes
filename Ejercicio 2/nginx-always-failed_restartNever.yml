@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "nginx-always-failed-noRestart"
+  namespace: default
+  labels:
+    app: "nginx-always-failed-noRestart"
+spec:
+  restartPolicy: Never
+  containers:
+    - name: nginx-always-failed-noRestart
+      image: "nginx:latest"
+      command: ["sh", "-c", "echo Ejemplo de pod fallando && exit 1"]
+      ports:
+        - containerPort: 80
+          name: http
