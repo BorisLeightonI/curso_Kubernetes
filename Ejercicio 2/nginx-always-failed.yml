@@ -6,6 +6,7 @@ metadata:
   labels:
     app: "nginx-always"
 spec:
+  restartPolicy: OnFailure
   containers:
     - name: nginx-always
       image: "nginx:latest"
@@ -13,4 +14,3 @@ spec:
       ports:
         - containerPort: 80
           name: http
-  restartPolicy: OnFailure
