@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "nginx-always"
+  namespace: default
+  labels:
+    app: "nginx-always"
+spec:
+  containers:
+    - name: nginx-always
+      image: "nginx:latest"
+      command: ["sh", "-c", "echo Ejemplo de pod fallando && exit 1"]
+      ports:
+        - containerPort: 80
+          name: http
+  restartPolicy: OnFailure
