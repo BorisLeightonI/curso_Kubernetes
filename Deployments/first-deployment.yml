@@ -53,6 +53,6 @@ spec:
             periodSeconds: 10
           ports:
             - containerPort: 80
-              name: nginx-deployment
+              name: nginx-deploy
 
       restartPolicy: Always
