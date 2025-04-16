@@ -10,6 +10,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nginx-service
+                name: nginx-service-for-ingress
                 port:
-                  number: 8080
+                  number: 80
