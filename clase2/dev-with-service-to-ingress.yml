@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: desarrollo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-for-ingress
+  # namespace: desarrollo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-for-ingress
+  template:
+    metadata:
+      labels:
+        app: nginx-for-ingress
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-for-ingress
+  # namespace: desarrollo
+spec:
+  selector:
+    app: nginx-for-ingress
+  ports:
+    - targetPort: 80
+      port: 80
