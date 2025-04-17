@@ -3,4 +3,4 @@ kind: GatewayClass
 metadata:
   name: example-gateway-class
 spec:
-  controllerName: example.com/gateway-controller
+  controllerName: nginx.org/gateway-controller
